@@ -1,1 +1,99 @@
-# standardizedInstall
+# **ALL POSSIBLE DEPLOYMENT SOLUTIONS**
+## __Requirements for all solutions__
+- Ports to/from the kit IP are open on any firewalls between endpoints and the kit
+    - [List of ports]
+- An obfuscated name for the program and services to be ran on MP network without alerting adversaries
+- All install media should be loaded on the kit and an external device (A device we're prepared to lose)
+---
+---
+## Possible Method types
+- Method A: We're given domain credentials
+- Method B: We're loaned a system administrator with domain credentials
+- Method C: We are asked to provide install files and MP team will accomplish
+---
+---
+## GPO
+- Method A1:
+    - Windows Systems
+        - Install GPO to push all install files and scripts to machines from the Sysvol folder
+            - We need an exported GPO [XML] to import
+        - Run the GPO and ensure there is a restart scheduled within an acceptable timeframe or push a restart after coordinating with MP
+        - Verify installs, fill in any gaps in install with PowerShell or Direct Remoting
+            - Only after conducting troubleshooting and investigating why installation failed
+    - Linux Systems
+        - If the linux system can be added to the domain
+            - Recommend "Active Directory Bridge" by BeyondTrust
+            - Install AD Bridge and add Linux Systems to the domain in order to utilize domain credentials
+            - Install across linux systems with a bash script utilizing domain credentials
+        - If the linux system can NOT be added to the domain
+            - We can run a bash script given appropriate local credentials on the linux machines
+            - We can provide a bash script to install locally for system administrators to accomplish
+            - We can install manually via commands if given access
+---
+- Method B1:
+    - Windows Systems
+        - Install GPO to push all install files and scripts to machines from the Sysvol folder
+            - We need an exported GPO [XML] to import
+        - Run the GPO and ensure there is a restart scheduled within an acceptable timeframe or push a restart after coordinating with MP
+        - Verify installs, fill in any gaps in install with PowerShell or Direct Remoting
+            - Only after conducting troubleshooting and investigating why installation failed
+    - Linux Systems
+        - If the linux system can be added to the domain
+            - Recommend "Active Directory Bridge" by BeyondTrust
+            - Install AD Bridge and add Linux Systems to the domain in order to utilize domain credentials
+            - Install across linux systems with a bash script utilizing domain credentials
+        - If the linux system can NOT be added to the domain
+            - We can run a bash script given appropriate local credentials on the linux machines
+            - We can provide a bash script to install locally for system administrators to accomplish
+            - We can install manually via commands if given access
+---
+- Method C1:
+    - Items to provide:
+        - Install instructions in English and Given language (reviewed by a PERSON)
+        - Exported GPO [XML] for them to import
+        - All related install files in a .zip to include Linux Install files
+            - Transfer vehicle dependant on MP, could be email, external media, disc. Be prepared for any option
+---
+---
+## PowerShell
+- Method A2:
+    - Windows Systems
+        - Install via PowerShell script after coordinating an appropriate time to limit service interruptions in case of issue
+            - Need ONE big perfect script written by none other than DP
+    - Linux Systems
+        - Install PowerShell CORE for compatability
+        - If they don't want PowerShell CORE we can install via Bash scripts
+- Method B2:
+    - Windows Systems
+        - Install via PowerShell script after coordinating an appropriate time to limit service interruptions in case of issue
+            - Need ONE big perfect script written by none other than DP
+    - Linux Systems
+        - Install PowerShell CORE for compatability
+        - If they don't want PowerShell CORE we can install via Bash scripts
+- Method C2:
+    - Items to provide:
+        - Install instructions in English and Given language (reviewed by a PERSON)
+        - The one true PowerShell script to rule them all
+        - All related install files in a .zip
+            - Transfer vehicle dependant on MP, could be email, external media, disc. Be prepared for any option
+---
+---
+## Batch
+- Method A3:
+    - Windows Systems
+        - Push batch to machines using PowerShell (for security reasons)
+        - Execute batch on machines using PowerShell (for security reasons)
+    - Linux Systems
+        - Bash scripts
+- Method B3:
+    - Windows Systems
+        - Install via Batch script after coordinating an appropriate time to limit service interruptions in case of issue
+            - Need ONE big perfect script written by none other than JD
+    - Linux Systems
+        - Install via Bash scripts
+- Method C3:
+    - Items to provide:
+        - Install instructions in English and Given language (reviewed by a PERSON)
+        - The Batch script written by the BadBatch (yass queen)
+        - All related install files in a .zip
+            - Transfer vehicle dependant on MP, could be email, external media, disc. Be prepared for any option
