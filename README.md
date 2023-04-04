@@ -2,7 +2,6 @@
 ## __Requirements for all solutions__
 - Ports to/from the kit IP are open on any firewalls between endpoints and the kit
     - [List of ports]
-- An obfuscated name for the program and services to be ran on MP network without alerting adversaries
 - All install media should be loaded on the kit and an external device (A device we're prepared to lose)
 ---
 ---
